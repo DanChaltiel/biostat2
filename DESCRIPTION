@@ -1,6 +1,7 @@
 Package: biostat2
 Title: biostat, mais 2
-Version: 0.12.0
+Encoding: UTF-8
+Version: 0.13.0
 Authors@R: c(
     person("David", "Hajage", email = "david.hajage@lmr.aphp.fr", role = c("aut", "cre")),
     person("Dan", "Chaltiel", email = "dan.chaltiel@gmail.com", role = c("ctb")))
@@ -21,10 +22,12 @@ Imports:
     DescTools,
     officer,
     flextable,
+    lifecycle,
     nortest
 License: GPL (>= 2)
 LazyData: true
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.0
 Suggests: 
     testthat,
     ReporteRs
+RdMacros: lifecycle

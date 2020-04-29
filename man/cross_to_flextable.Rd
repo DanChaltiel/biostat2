@@ -5,11 +5,20 @@
 \alias{body_add_crosstable}
 \title{Crosstables output}
 \usage{
-cross_to_flextable(crosstable, compact = FALSE, auto.fit = FALSE,
-  id = ".id", variable = "variable", label = "label",
-  value = "value", p = "p", effect = "effect", total = "Total",
-  show.test.name = F, generic.labels = c(id, variable, label, value, p,
-  effect, total))
+cross_to_flextable(
+  crosstable,
+  compact = FALSE,
+  auto.fit = FALSE,
+  id = ".id",
+  variable = "variable",
+  label = "label",
+  value = "value",
+  p = "p",
+  effect = "effect",
+  total = "Total",
+  show.test.name = F,
+  generic.labels = c(id, variable, label, value, p, effect, total)
+)
 
 body_add_crosstable(doc, ...)
 }

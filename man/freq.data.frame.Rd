@@ -4,8 +4,13 @@
 \alias{freq.data.frame}
 \title{Compute frequencies (data.frame input)}
 \usage{
-freq.data.frame(df, showNA = c("no", "ifany", "always"), total = FALSE,
-  digits = 2, label = FALSE)
+freq.data.frame(
+  df,
+  showNA = c("no", "ifany", "always"),
+  total = FALSE,
+  digits = 2,
+  label = FALSE
+)
 }
 \arguments{
 \item{df}{data.frame}

@@ -8,13 +8,21 @@
 \alias{nna}
 \title{Summary functions}
 \usage{
-moystd(x, na.rm = TRUE, dig = 2,
+moystd(
+  x,
+  na.rm = TRUE,
+  dig = 2,
   fixed_format = getOption("biostat2_fixed_format", FALSE),
-  zero_digits = 1)
+  zero_digits = 1
+)
 
-mediqr(x, na.rm = TRUE, dig = 2,
+mediqr(
+  x,
+  na.rm = TRUE,
+  dig = 2,
   fixed_format = getOption("biostat2_fixed_format", FALSE),
-  zero_digits = 1)
+  zero_digits = 1
+)
 
 minmax(x, na.rm = TRUE, dig = 2)
 

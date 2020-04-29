@@ -4,9 +4,18 @@
 \alias{body_add_crosstable_bak}
 \title{OLD: Adds a table made by the cross function into an officer document}
 \usage{
-body_add_crosstable_bak(doc, crosstable, compact = FALSE,
-  auto.fit = FALSE, id = ".id", variable = "variable",
-  label = "label", value = "value", p = "p", show.test.name = F)
+body_add_crosstable_bak(
+  doc,
+  crosstable,
+  compact = FALSE,
+  auto.fit = FALSE,
+  id = ".id",
+  variable = "variable",
+  label = "label",
+  value = "value",
+  p = "p",
+  show.test.name = F
+)
 }
 \arguments{
 \item{doc}{a \code{rdocx} object created by \code{read_docx} function (see \code{officer} package)}

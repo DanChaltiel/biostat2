@@ -4,8 +4,7 @@
 \alias{correlation}
 \title{Compute correlation}
 \usage{
-correlation(x, y, method = c("pearson", "kendall", "spearman"),
-  digits = 2)
+correlation(x, y, method = c("pearson", "kendall", "spearman"), digits = 2)
 }
 \arguments{
 \item{x}{numerical object}

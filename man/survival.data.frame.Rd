@@ -4,8 +4,13 @@
 \alias{survival.data.frame}
 \title{Compute survival (data.frame input)}
 \usage{
-survival.data.frame(df, times = NULL, digits = 2, followup = FALSE,
-  label = FALSE)
+survival.data.frame(
+  df,
+  times = NULL,
+  digits = 2,
+  followup = FALSE,
+  label = FALSE
+)
 }
 \arguments{
 \item{df}{df}

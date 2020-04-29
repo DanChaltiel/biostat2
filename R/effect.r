@@ -30,7 +30,7 @@ display.effect <- function(effect, digits = 4) {
 # rd.row.by.col <- function (x, y, conf.level = 0.95) {
 #     tab <- table(x, y)
 #     if (ncol(tab) <= 1 | ncol(tab) > 2) {
-#         ## Je ne sais pas quel effet calculer par défaut quand il existe plus de 2 catégories en colonne
+#         ## Je ne sais pas quel effet calculer par d?faut quand il existe plus de 2 cat?gories en colonne
 #         effect <- NULL
 #         ci <- NULL
 #         effect.name <- NULL
@@ -62,7 +62,7 @@ display.effect <- function(effect, digits = 4) {
 # rr.row.by.col <- function (x, y, conf.level = 0.95) {
 #     tab <- table(x, y)
 #     if (ncol(tab) <= 1 | ncol(tab) > 2) {
-#         ## Je ne sais pas quel effet calculer par défaut quand il existe plus de 2 catégories en colonne
+#         ## Je ne sais pas quel effet calculer par d?faut quand il existe plus de 2 cat?gories en colonne
 #         effect <- NULL
 #         ci <- NULL
 #         effect.name <- NULL
@@ -94,7 +94,7 @@ display.effect <- function(effect, digits = 4) {
 # or.row.by.col <- function (x, y, conf.level = 0.95) {
 #     tab <- table(x, y)
 #     if (ncol(tab) <= 1 | ncol(tab) > 2) {
-#         ## Je ne sais pas quel effet calculer par défaut quand il existe plus de 2 catégories en colonne
+#         ## Je ne sais pas quel effet calculer par d?faut quand il existe plus de 2 cat?gories en colonne
 #         effect <- NULL
 #         ci <- NULL
 #         effect.name <- NULL
@@ -310,7 +310,7 @@ rd.col.by.row <- function (x, y, conf.level = 0.95) {
 diff.mean.auto <- function(x, g, conf.level = 0.95, R = 500) {
     ng <- table(g)
     if (length(ng) <= 1 | length(ng) > 2) {
-        ## Je ne sais pas quel effet calculer par défaut quand il existe plus de 2 catégories en colonne
+        ## Je ne sais pas quel effet calculer par d?faut quand il existe plus de 2 cat?gories en colonne
         effect <- NULL
         ci <- NULL
         effect.name <- NULL
@@ -370,7 +370,7 @@ diff.mean.auto <- function(x, g, conf.level = 0.95, R = 500) {
 diff.mean.boot <- function(x, g, conf.level = 0.95, R = 500) {
     ng <- table(g)
     if (length(ng) <= 1 | length(ng) > 2) {
-        ## Je ne sais pas quel effet calculer par défaut quand il existe plus de 2 catégories en colonne
+        ## Je ne sais pas quel effet calculer par d?faut quand il existe plus de 2 cat?gories en colonne
         effect <- NULL
         ci <- NULL
         effect.name <- NULL
@@ -405,7 +405,7 @@ diff.mean.boot <- function(x, g, conf.level = 0.95, R = 500) {
 diff.mean.student <- function(x, g, conf.level = 0.95) {
     ng <- table(g)
     if (length(ng) <= 1 | length(ng) > 2) {
-        ## Je ne sais pas quel effet calculer par défaut quand il existe plus de 2 catégories en colonne
+        ## Je ne sais pas quel effet calculer par d?faut quand il existe plus de 2 cat?gories en colonne
         effect <- NULL
         ci <- NULL
         effect.name <- NULL
@@ -444,7 +444,7 @@ diff.mean.student <- function(x, g, conf.level = 0.95) {
 diff.median <- function(x, g, conf.level = 0.95, R = 500) {
     ng <- table(g)
     if (length(ng) <= 1 | length(ng) > 2) {
-        ## Je ne sais pas quel effet calculer par défaut quand il existe plus de 2 catégories en colonne
+        ## Je ne sais pas quel effet calculer par d?faut quand il existe plus de 2 cat?gories en colonne
         effect <- NULL
         ci <- NULL
         effect.type <- NULL

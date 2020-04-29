@@ -3,6 +3,7 @@
 .Rproj.user
 *.RData
 *.Rhistory
+.Rhistory
 
 # MS Word files
 test*.docx

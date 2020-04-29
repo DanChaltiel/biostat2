@@ -4,8 +4,13 @@
 \alias{body_add_table_legend}
 \title{Add a table legend}
 \usage{
-body_add_table_legend(x, legend, legend_style = "table title",
-  style = "strong", seqfield = "SEQ Table \\\\* Arabic")
+body_add_table_legend(
+  x,
+  legend,
+  legend_style = "table title",
+  style = "strong",
+  seqfield = "SEQ Table \\\\* Arabic"
+)
 }
 \arguments{
 \item{x}{a docx object}

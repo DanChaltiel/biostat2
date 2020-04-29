@@ -3,14 +3,28 @@
 
 # biostat2
 
+[![Lifecycle:
+superseded](https://img.shields.io/badge/lifecycle-superseded-blue.svg)](https://www.tidyverse.org/lifecycle/#superseded)
+
 Ceci est un fork du super package
-<a href='https://github.com/eusebe/biostat2'>`biostat2`</a> de David
-Hajage.
+[`biostat2`](https://github.com/eusebe/biostat2) de David Hajage.
 
 Il est centré sur la fonction `cross` qui permet de générer très
 facilement les *statistiques descriptives* d’une étude et s’intègre
 naturellement au package `officer` permettant de faire un rapport
 automatisé.
+
+# Important
+
+Ce fork a été totalement réécrit et optimisé dans un nouveau package
+:[`crosstable`](https://github.com/DanChaltiel/crosstable). Celui-ci
+permet une nouvelle syntaxe plus efficace avec l’utilisation des helpers
+de `tidyselect`, des fonctions predicates, et l’output (`flextable`) a
+été amélioré. Aucune mise-à-jour ne sera effectuée sur ce fork, je vous
+conseille donc vivement d’utiliser soit le package
+[`biostat2`](https://github.com/eusebe/biostat2) original, soit le
+nouveau package
+[`crosstable`](https://github.com/DanChaltiel/crosstable).
 
 ## Installation
 
@@ -18,6 +32,7 @@ automatisé.
 install.packages("devtools")
 remotes::install_github("DanChaltiel/biostat2")
 library(biostat2)
+# cross=biostat2::cross #lancer si purrr est chargé pour overrider purrr::cross
 ```
 
 ## Utilisation
@@ -71,11 +86,10 @@ On peut spécifier des calculs spécifiques dans la formule avec la
 fonction `I()`, on peut utiliser n’importe quelle fonction de
 description (ajouter les arguments à la suite, comme l’argument `probs`
 de la fonction `quantile` ici) et on peut demander des totaux en ligne,
-en colonne ou les
-deux.
+en colonne ou les deux.
 
 ``` r
-cross(cbind(Sepal.Length, I(Sepal.Width^2)) ~ Species, iris, funs=quantile, probs=c(1/3, 2/3), total="line") #T1 & T2 by Species
+cross(cbind(Sepal.Length, I(Sepal.Width^2)) ~ Species, iris, funs=quantile, probs=c(1/3, 2/3), total="row") #T1 & T2 by Species
 #>                .id            label           variable setosa versicolor
 #> 1     Sepal.Length     Sepal.Length quantile 33.33333%    4.9        5.7
 #> 2     Sepal.Length     Sepal.Length quantile 66.66667%    5.1        6.1
@@ -93,24 +107,23 @@ mais on peut restreindre avec l’argument `margin`. L’argument `test`
 permet de faire le test adéquat en fonction de règles définies.
 
 ``` r
-cross(alcgp ~ tobgp, esoph, margin="line", total="both", test=TRUE)
+cross(alcgp ~ tobgp, esoph, margin="row", total="both", test=TRUE)
 #>     .id label  variable    0-9g/day       10-19       20-29         30+
 #> 1 alcgp alcgp 0-39g/day  6 (26.09%)  6 (26.09%)  5 (21.74%)  6 (26.09%)
 #> 2 alcgp alcgp     40-79  6 (26.09%)  6 (26.09%)  6 (26.09%)  5 (21.74%)
 #> 3 alcgp alcgp    80-119  6 (28.57%)  6 (28.57%)  4 (19.05%)  5 (23.81%)
 #> 4 alcgp alcgp      120+  6 (28.57%)  6 (28.57%)  5 (23.81%)  4 (19.05%)
 #> 5 alcgp alcgp     Total 24 (27.27%) 24 (27.27%) 20 (22.73%) 20 (22.73%)
-#>         Total                                                    p
-#> 1 23 (26.14%) p value: 0.9999 (Fisher's Exact Test for Count Data)
-#> 2 23 (26.14%) p value: 0.9999 (Fisher's Exact Test for Count Data)
-#> 3 21 (23.86%) p value: 0.9999 (Fisher's Exact Test for Count Data)
-#> 4 21 (23.86%) p value: 0.9999 (Fisher's Exact Test for Count Data)
-#> 5   88 (100%) p value: 0.9999 (Fisher's Exact Test for Count Data)
+#>         Total                                                      p
+#> 1 23 (26.14%) p value: 0.9999 \n(Fisher's Exact Test for Count Data)
+#> 2 23 (26.14%) p value: 0.9999 \n(Fisher's Exact Test for Count Data)
+#> 3 21 (23.86%) p value: 0.9999 \n(Fisher's Exact Test for Count Data)
+#> 4 21 (23.86%) p value: 0.9999 \n(Fisher's Exact Test for Count Data)
+#> 5   88 (100%) p value: 0.9999 \n(Fisher's Exact Test for Count Data)
 ```
 
 Si le groupement n’a que deux niveau, il est possible de calculer un
-effet grâce à l’argument
-`effect`.
+effet grâce à l’argument `effect`.
 
 ``` r
 cross(cbind(mpg, qsec) ~ factor(am), mtcars, effect=T, test=TRUE, show.method=F)
@@ -144,8 +157,7 @@ cross(cbind(mpg, qsec) ~ factor(am), mtcars, effect=T, test=TRUE, show.method=F)
 ```
 
 Enfin, si la variable de groupe est numérique, `cross` sortira les
-coefficients de
-corrélation.
+coefficients de corrélation.
 
 ``` r
 cross(cbind(Sepal.Length, Sepal.Width) ~ cbind(Petal.Length, Petal.Width), iris)
@@ -167,15 +179,24 @@ label(mtcars2$mpg) = "Miles/(US) gallon"
 label(mtcars2$qsec) = "1/4 mile time in seconds"
 mtcars2$am = factor(mtcars2$am, levels=0:1, labels=c("automatic", "manual"))
 cross(cbind(mpg, qsec) ~ am, mtcars2)
-#>    .id label  variable           automatic              manual
-#> 1  mpg   mpg Min / Max         10.4 / 24.4           15 / 33.9
-#> 2  mpg   mpg Med [IQR]   17.3 [14.95;19.2]      22.8 [21;30.4]
-#> 3  mpg   mpg Moy (std)        17.15 (3.83)        24.39 (6.17)
-#> 4  mpg   mpg    N (NA)              19 (0)              13 (0)
-#> 5 qsec  qsec Min / Max        15.41 / 22.9         14.5 / 19.9
-#> 6 qsec  qsec Med [IQR] 17.82 [17.18;19.17] 17.02 [16.46;18.61]
-#> 7 qsec  qsec Moy (std)        18.18 (1.75)        17.36 (1.79)
-#> 8 qsec  qsec    N (NA)              19 (0)              13 (0)
+#>    .id                    label  variable           automatic
+#> 1  mpg        Miles/(US) gallon Min / Max         10.4 / 24.4
+#> 2  mpg        Miles/(US) gallon Med [IQR]   17.3 [14.95;19.2]
+#> 3  mpg        Miles/(US) gallon Moy (std)        17.15 (3.83)
+#> 4  mpg        Miles/(US) gallon    N (NA)              19 (0)
+#> 5 qsec 1/4 mile time in seconds Min / Max        15.41 / 22.9
+#> 6 qsec 1/4 mile time in seconds Med [IQR] 17.82 [17.18;19.17]
+#> 7 qsec 1/4 mile time in seconds Moy (std)        18.18 (1.75)
+#> 8 qsec 1/4 mile time in seconds    N (NA)              19 (0)
+#>                manual
+#> 1           15 / 33.9
+#> 2      22.8 [21;30.4]
+#> 3        24.39 (6.17)
+#> 4              13 (0)
+#> 5         14.5 / 19.9
+#> 6 17.02 [16.46;18.61]
+#> 7        17.36 (1.79)
+#> 8              13 (0)
 ```
 
 ## Reporting
@@ -186,7 +207,7 @@ Il est possible de transformer une table en HTML via la fonction
 `cross_to_flextable())`.
 
 ``` r
-cross(cbind(agegp, ncases) ~ tobgp, esoph, margin="line", test = TRUE) %>% cross_to_flextable
+cross(cbind(agegp, ncases) ~ tobgp, esoph, margin="row", test = TRUE) %>% cross_to_flextable
 ```
 
 <center>
@@ -237,8 +258,7 @@ Word. On peut ajouter des tableaux `cross` de cette façon :
 A noter toutefois que les tableaux devront être agrandis avec
 l’ajustement automatique de Word, l’argument `auto.fit` pouvant
 largement dépasser les marges de la page. Le fichier de sortie est donc
-disponible ici :
-[cross\_officer.docx](exemples/cross_officer.docx)
+disponible ici : [cross\_officer.docx](exemples/cross_officer.docx)
 
 ### Intégration avec `Rmarkdown`
 

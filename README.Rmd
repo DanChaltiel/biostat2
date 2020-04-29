@@ -24,9 +24,15 @@ library(dplyr)
 
 # biostat2
 
-Ceci est un fork du super package <a href='https://github.com/eusebe/biostat2'>`biostat2`</a> de David Hajage.
+[![Lifecycle: superseded](https://img.shields.io/badge/lifecycle-superseded-blue.svg)](https://www.tidyverse.org/lifecycle/#superseded)
+
+Ceci est un fork du super package [`biostat2`](https://github.com/eusebe/biostat2) de David Hajage.
 
 Il est centré sur la fonction `cross` qui permet de générer très facilement les *statistiques descriptives* d'une étude et s'intègre naturellement au package `officer` permettant de faire un rapport automatisé.
+
+# Important
+
+Ce fork a été totalement réécrit et optimisé dans un nouveau package :[`crosstable`](https://github.com/DanChaltiel/crosstable). Celui-ci permet une nouvelle syntaxe plus efficace avec l'utilisation des helpers de `tidyselect`, des fonctions predicates, et l'output (`flextable`) a été amélioré. Aucune mise-à-jour ne sera effectuée sur ce fork, je vous conseille donc vivement d'utiliser soit le package [`biostat2`](https://github.com/eusebe/biostat2) original, soit le nouveau package [`crosstable`](https://github.com/DanChaltiel/crosstable).
 
 ## Installation
 

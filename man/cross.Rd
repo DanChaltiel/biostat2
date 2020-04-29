@@ -4,19 +4,33 @@
 \alias{cross}
 \title{Describe everything}
 \usage{
-cross(formula = cbind(...) ~ ., data = NULL, funs = c(` ` =
-  cross_summary), ..., margin = c("all", "row", "column", "cell"),
+cross(
+  formula = cbind(...) ~ .,
+  data = NULL,
+  funs = c(` ` = cross_summary),
+  ...,
+  margin = c("all", "row", "column", "cell"),
   total = c("none", "all", "row", "column", "FALSE", "TRUE", 0, 1, 2),
-  digits = 2, showNA = c("no", "ifany", "always"),
-  method = c("pearson", "kendall", "spearman"), times = NULL,
-  followup = FALSE, test = FALSE,
+  digits = 2,
+  showNA = c("no", "ifany", "always"),
+  method = c("pearson", "kendall", "spearman"),
+  times = NULL,
+  followup = FALSE,
+  test = FALSE,
   test.summarize = test.summarize.auto,
   test.survival = test.survival.logrank,
-  test.tabular = test.tabular.auto, show.test = display.test,
-  plim = 4, show.method = TRUE, effect = FALSE,
-  effect.summarize = diff.mean.auto, effect.tabular = or.row.by.col,
-  effect.survival = effect.survival.coxph, conf.level = 0.95,
-  label = TRUE, regroup = FALSE)
+  test.tabular = test.tabular.auto,
+  show.test = display.test,
+  plim = 4,
+  show.method = TRUE,
+  effect = FALSE,
+  effect.summarize = diff.mean.auto,
+  effect.tabular = or.row.by.col,
+  effect.survival = effect.survival.coxph,
+  conf.level = 0.95,
+  label = TRUE,
+  regroup = FALSE
+)
 }
 \arguments{
 \item{formula}{a formula (see Details).}
@@ -150,6 +164,10 @@ grouped in the same table. \code{cbind(...)} works (ie regroups
 all variables of the data.frame together). When a \code{cbind} is
 in both sides of the formula, \code{cross} will do its best to
 group everything in the same table, but only if it is possible...
+
+
+\lifecycle{superseded}
+\Sexpr[results=rd, stage=render]{lifecycle::badge("superseded")}
 }
 \examples{
 
@@ -164,6 +182,7 @@ cross(alcgp ~ tobgp, esoph, margin="row", total="both", test=TRUE)
 cross(cbind(hp, mpg) ~ factor(am), mtcars, effect=TRUE, test=TRUE, show.method=FALSE)
 library(survival)
 cross(Surv(time, status) ~ x, data = aml)
+
 }
 \seealso{
 \code{cast} (reshape) and \code{summary.formula} (Hmisc).

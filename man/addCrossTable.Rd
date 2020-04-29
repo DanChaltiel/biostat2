@@ -5,8 +5,15 @@
 \title{Deprecated
 add a table made by the cross function into a ReporteRs document}
 \usage{
-addCrossTable(doc, crosstable, compact = FALSE, id = ".id",
-  variable = "variable", value = "value", p = "p")
+addCrossTable(
+  doc,
+  crosstable,
+  compact = FALSE,
+  id = ".id",
+  variable = "variable",
+  value = "value",
+  p = "p"
+)
 }
 \arguments{
 \item{doc}{a \code{docx} object created by \code{docx} function (see \code{ReporteRs} package)}

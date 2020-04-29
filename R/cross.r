@@ -394,6 +394,8 @@ regroup <- function(vars, numdata, catdata, survdata) {
 ##' group everything in the same table, but only if it is possible...
 ##'
 ##'
+##' \lifecycle{superseded}
+##' \Sexpr[results=rd, stage=render]{lifecycle::badge("superseded")}
 ##' @return
 ##'   A data.frame, or a list of data.frames.
 ##' @author David Hajage, inspired by the design and the code of
@@ -413,11 +415,16 @@ regroup <- function(vars, numdata, catdata, survdata) {
 ##' cross(cbind(hp, mpg) ~ factor(am), mtcars, effect=TRUE, test=TRUE, show.method=FALSE)
 ##' library(survival)
 ##' cross(Surv(time, status) ~ x, data = aml)
+##' 
 ##' @keywords univar
 ##' @export
 ##' @import checkmate
 ##' @importFrom plyr llply is.formula
+##' @importFrom lifecycle deprecate_warn
 cross <- function(formula = cbind(...) ~ ., data = NULL, funs = c(" " = cross_summary), ..., margin = c("all", "row", "column", "cell"), total = c("none", "all", "row", "column", "FALSE", "TRUE", 0, 1, 2), digits = 2, showNA = c("no", "ifany", "always"), method = c("pearson", "kendall", "spearman"), times = NULL, followup = FALSE, test = FALSE, test.summarize = test.summarize.auto, test.survival = test.survival.logrank, test.tabular = test.tabular.auto, show.test = display.test, plim = 4, show.method = TRUE, effect = FALSE, effect.summarize = diff.mean.auto, effect.tabular = or.row.by.col, effect.survival = effect.survival.coxph, conf.level = 0.95, label = TRUE, regroup = FALSE) {
+  
+  deprecate_warn("0.13.0", "cross()", 
+                 details="Please use the package `crosstable` instead.")
   
   coll = makeAssertCollection()
   assertFormula(formula, add=coll)

@@ -4,8 +4,13 @@
 \alias{summarize.data.frame}
 \title{Compute summary statistics (data.frame input)}
 \usage{
-summarize.data.frame(df, funs = c(mean, sd, quantile, n, na), ...,
-  digits = 2, label = FALSE)
+summarize.data.frame(
+  df,
+  funs = c(mean, sd, quantile, n, na),
+  ...,
+  digits = 2,
+  label = FALSE
+)
 }
 \arguments{
 \item{df}{a data.frame}

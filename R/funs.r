@@ -133,7 +133,6 @@ cross_summary = function(x, dig=2) {
            "Moy (std)" = moystd(x, dig=dig), "N (NA)" = nna(x)))
 }
 #' @rdname cross_summary
-#' @deprecated
 mysummary=cross_summary
 
 # Utils functions ---------------------------------------------------------

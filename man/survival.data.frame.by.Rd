@@ -4,12 +4,24 @@
 \alias{survival.data.frame.by}
 \title{Compute survival according to a factor (data.frame input)}
 \usage{
-survival.data.frame.by(df, by, times = NULL, followup = FALSE,
-  total = FALSE, digits = 2, test = FALSE,
-  test.survival = test.survival.logrank, show.test = display.test,
-  plim = 4, show.method = TRUE, effect = FALSE,
+survival.data.frame.by(
+  df,
+  by,
+  times = NULL,
+  followup = FALSE,
+  total = FALSE,
+  digits = 2,
+  test = FALSE,
+  test.survival = test.survival.logrank,
+  show.test = display.test,
+  plim = 4,
+  show.method = TRUE,
+  effect = FALSE,
   effect.survival = effect.survival.coxph,
-  show.effect = display.effect, conf.level = 0.95, label = FALSE)
+  show.effect = display.effect,
+  conf.level = 0.95,
+  label = FALSE
+)
 }
 \arguments{
 \item{df}{df}

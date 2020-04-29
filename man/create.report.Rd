@@ -4,10 +4,21 @@
 \alias{create.report}
 \title{Create a docx object with a specific template and informations already inserted}
 \usage{
-create.report(template = c("gerc", "urc", "cephepi"), title = "",
-  acronym = "", version = "", npromo = "", nct = "", invest = "",
-  biostat = "", methodo = "", date_lastmodif = "", date_freez = "",
-  date_update = "", history = NULL)
+create.report(
+  template = c("gerc", "urc", "cephepi"),
+  title = "",
+  acronym = "",
+  version = "",
+  npromo = "",
+  nct = "",
+  invest = "",
+  biostat = "",
+  methodo = "",
+  date_lastmodif = "",
+  date_freez = "",
+  date_update = "",
+  history = NULL
+)
 }
 \arguments{
 \item{template}{either 'gerc', 'urc', or 'cephepi'}

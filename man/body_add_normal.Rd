@@ -12,13 +12,9 @@ body_add_glued(doc, x, ...)
 \arguments{
 \item{doc}{the doc object (created with the \code{read_docx} function of \code{officer} package)}
 
-\item{...}{one or several character strings, collapsed into a paragraph with \code{base::paste}}
+\item{...}{parameters to be passed to \code{glue::glue}}
 
 \item{x}{the string with \code{glue::glue} patterns (Expressions enclosed by braces will be evaluated as R code)}
-
-\item{doc}{the doc object (created with the \code{read_docx} function of \code{officer} package)}
-
-\item{...}{parameters to be passed to \code{glue::glue}}
 }
 \value{
 a new doc object
